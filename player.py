@@ -4,4 +4,4 @@ class Player():
         self.playerCharacter = playerCharacter
 
     def getCharacter():
-        return self.playerCharacter
+        return self.playerCharacter 
