@@ -25,4 +25,14 @@ class AymanTicTacToe():
                     print("\nInvalid Option! Please Choose Another Option!")
 
     def startMultiplayerGame(self):
-        player1Character = str(input("Enter the character for Player 1 (X or O): "))
+        while (player1Character not in ["X", "O"]):
+            player1Character = str(input("Enter the character for Player 1 (X or O): ")).upper()
+            match player1Character:
+                case "X":
+                    self.player1 = Player(player1Character)
+                    self.player2 = Player("O")
+                case "O":
+                    self.player1 = Player(player1Character)
+                    self.player2 = Player("X")
+                case _:
+                    print("Invalid character! Please try entering X or O!")
