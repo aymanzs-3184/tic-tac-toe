@@ -5,8 +5,9 @@ class AymanTicTacToe():
     def __init__(self) -> None:
         self.gameList = ["  ","  ","  ","  ","  ","  ","  ","  ","  "] 
 
-    def playGame():
+    def playGame(self):
         print("Welcome to Ayman's Tic Tac Toe!")
+        userOption = 0
         while (userOption != 3):
             print("\nPress 1 to play against a bot :")
             print("\nPress 2 to play against another Player :")
@@ -15,13 +16,13 @@ class AymanTicTacToe():
             match userOption:
                 case 1:
                     pass
-                    break
                 case 2:
-                    pass
-                    break
+                    self.startMultiplayerGame()
                 case 3:
                     print("\nGood Bye! Have a nice day!")
                     break
                 case _:
-                    print("Invalid Option! Please Choose Another Option!")
-                    break
+                    print("\nInvalid Option! Please Choose Another Option!")
+
+    def startMultiplayerGame(self):
+        player1Character = str(input("Enter the character for Player 1 (X or O): "))
