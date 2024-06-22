@@ -3,7 +3,8 @@ from player import Player
 class AymanTicTacToe():
 
     def __init__(self) -> None:
-        self.gameList = [" "," "," "," "," "," "," "," "," "] 
+        self.gameList = [" "," "," "," "," "," "," "," "," "]
+        self.numberOfOccupiedPositions = 0
 
     def playGame(self):
         print("Welcome to Ayman's Tic Tac Toe!")
