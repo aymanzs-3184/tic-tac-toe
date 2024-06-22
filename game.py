@@ -46,7 +46,7 @@ class AymanTicTacToe():
             if self.gameList[i] == " ":
                 columnNumber = (i % 3) + 1
                 rowNumber = (i // 3) + 1
-                printString = "Enter " + str(i) + " to tick the position at Row: " + str(rowNumber) + " Column: " + str(columnNumber)
+                printString = "Enter " + str(i + 1) + " to tick the position at Row: " + str(rowNumber) + " Column: " + str(columnNumber)
                 print(printString)
     
     def displayGameBoard(self):
