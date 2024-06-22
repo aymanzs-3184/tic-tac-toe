@@ -38,6 +38,16 @@ class AymanTicTacToe():
                 case _:
                     print("Invalid character! Please try entering X or O!")
 
+    def playTurn(self, player):
+        pass
+
+    def displayAvailablePositions(self):
+        for i in range(9):
+            if self.gameList[i] == " ":
+                columnNumber = (i % 3) + 1
+                rowNumber = (i - columnNumber - 1) / 3
+                printString = "Enter " + str(i) + " to tick the position at Row: " + str(rowNumber) + " Column: " + str(columnNumber)
+                print(printString)
     
     def displayGameBoard(self):
         print("-------------")
