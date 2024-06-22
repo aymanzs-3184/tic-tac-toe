@@ -36,3 +36,14 @@ class AymanTicTacToe():
                     self.player2 = Player("X")
                 case _:
                     print("Invalid character! Please try entering X or O!")
+
+    
+    def displayGameBoard(self):
+        print("-------------")
+        for i in range(0,3):
+            characterRow = "|"
+            for j in range(3):
+                characterPosition = 3 * i + j
+                characterRow += " " + self.gameList[characterPosition] + " |"
+            print(characterRow)
+            print("-------------")
