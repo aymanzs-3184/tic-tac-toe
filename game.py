@@ -67,9 +67,11 @@ class AymanTicTacToe():
             player1GameStatus  = self.getGameStatus(self.player1)
 
             if player1GameStatus == GameStatus.DRAW :
+                self.displayGameBoard()
                 print("\nThe Game has resulted in a Draw between " + str(self.player1) + " and " + str(self.player2))
                 break
             elif player1GameStatus == GameStatus.WIN :
+                self.displayGameBoard()
                 print("\n" + str(self.player1) + " has Won the game! ")
                 break
 
@@ -78,9 +80,11 @@ class AymanTicTacToe():
             player2GameStatus  = self.getGameStatus(self.player2)
             
             if player2GameStatus == GameStatus.DRAW :
+                self.displayGameBoard()
                 print("\nThe Game has resulted in a Draw between " + str(self.player1) + " and " + str(self.player2))
                 break
             elif player2GameStatus == GameStatus.WIN :
+                self.displayGameBoard()
                 print("\n" + str(self.player2) + " has Won the game! ")
                 break
         
@@ -101,6 +105,7 @@ class AymanTicTacToe():
         chosenPosition = player.getLastChosenPosition() - 1
         playerCharacter = player.getCharacter()
         self.gameList[chosenPosition] = playerCharacter
+        self.numberOfOccupiedPositions += 1
         
         print("\n" + str(player) + " has placed their character " + str(playerCharacter) + " at position: " + str(chosenPosition + 1) )
 
