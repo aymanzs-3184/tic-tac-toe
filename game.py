@@ -74,7 +74,7 @@ class AymanTicTacToe():
 
 
     def playTurn(self, player : Player):
-        print("\n" + str(player) + "Turn: ")
+        print("\n" + str(player) + " Turn: ")
         self.displayGameBoard()
         self.displayAvailablePositions()
         while self.getOptionValidity(player.getOption()) != True:
