@@ -38,6 +38,10 @@ class AymanTicTacToe():
                 case _:
                     print("\nInvalid Option! Please Choose Another Option!")
 
+    def resetGame(self):
+        self.gameList = [" "," "," "," "," "," "," "," "," "]
+        self.numberOfOccupiedPositions = 0
+
     def startMultiplayerGame(self):
         player1Name = input("\nEnter a name for the First Player: ")
         player2Name = input("\nEnter a name for the Second Player: ")
@@ -80,6 +84,7 @@ class AymanTicTacToe():
                 print("\n" + str(self.player2) + " has Won the game! ")
                 break
         
+        self.resetGame()
         self.playGame()
 
 
@@ -89,7 +94,7 @@ class AymanTicTacToe():
         self.displayAvailablePositions()
         while self.getOptionValidity(player.getOption()) != True:
             print("\nInvalid Option, Please select a valid option!")
-            print("\n" + str(player) + " Turn: ")
+            print("\n" + str(player) + "'s Turn: ")
             self.displayGameBoard()
             self.displayAvailablePositions()
 
