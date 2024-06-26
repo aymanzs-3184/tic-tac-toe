@@ -70,13 +70,15 @@ class AymanTicTacToe():
         
         lastOccupiedPosition = player.getLastChosenPosition()
 
-        playerCharacter = player.getCharacter()
+        if lastOccupiedPosition != None :
 
-        adjacentPositions = self.adjacentPositionsDict.get(lastOccupiedPosition)
+            playerCharacter = player.getCharacter()
 
-        for i, j in adjacentPositions:
-            if self.gameList[i] == self.gameList[j] == playerCharacter :
-                return GameStatus.WIN
+            adjacentPositions = self.adjacentPositionsDict.get(lastOccupiedPosition)
+
+            for i, j in adjacentPositions:
+                if self.gameList[i] == self.gameList[j] == playerCharacter :
+                    return GameStatus.WIN
             
         return GameStatus.IN_PROGRESS
     
