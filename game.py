@@ -5,7 +5,7 @@ from enum import Enum
 class AymanTicTacToe():
 
     def __init__(self) -> None:
-        self.gameList = ["X"," "," "," "," "," "," "," "," "]
+        self.gameList = [" "," "," "," "," "," "," "," "," "]
         self.numberOfOccupiedPositions = 0
         self.adjacentPositionsDict = {
                                         0: [(1, 2), (3, 6), (4, 8)],
@@ -137,3 +137,6 @@ class GameStatus(Enum):
     WIN = 0
     DRAW = 1
     IN_PROGRESS = 2
+
+x = AymanTicTacToe()
+x.playGame()
