@@ -91,7 +91,7 @@ class AymanTicTacToe():
         playerCharacter = player.getCharacter()
         self.gameList[chosenPosition] = playerCharacter
         
-        print("\n" + str(player) + " has placed their character " + str(playerCharacter) + " at position: " + str(chosenPosition) )
+        print("\n" + str(player) + " has placed their character " + str(playerCharacter) + " at position: " + str(chosenPosition + 1) )
 
 
     def getOptionValidity(self, position : int) -> bool:
@@ -116,11 +116,14 @@ class AymanTicTacToe():
 
         if lastOccupiedPosition != None :
 
+            lastOccupiedPosition -= 1
+
             playerCharacter = player.getCharacter()
 
             adjacentPositions = self.adjacentPositionsDict.get(lastOccupiedPosition)
 
-            for i, j in adjacentPositions:
+            for positionTuple in adjacentPositions:
+                i, j = positionTuple
                 if self.gameList[i] == self.gameList[j] == playerCharacter :
                     return GameStatus.WIN
             
