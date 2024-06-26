@@ -45,7 +45,7 @@ class AymanTicTacToe():
         player1Character = None
         while (player1Character not in ["X", "O"]):
 
-            player1Character = str(input("Enter the character for " + player1Name + " (X or O): ")).upper()
+            player1Character = str(input("\nEnter the character for " + player1Name + " (X or O): ")).upper()
             self.player1 = Player(player1Character, "Player 1")
 
             match player1Character:
@@ -121,7 +121,7 @@ class AymanTicTacToe():
         return GameStatus.IN_PROGRESS
     
     def displayGameBoard(self):
-        print("-------------")
+        print("\n-------------")
         for i in range(0,3):
             characterRow = "|"
             for j in range(3):
