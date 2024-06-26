@@ -79,7 +79,7 @@ class AymanTicTacToe():
         self.displayAvailablePositions()
         while self.getOptionValidity(player.getOption()) != True:
             print("\nInvalid Option, Please select a valid option!")
-            print("\n" + str(player) + "Turn: ")
+            print("\n" + str(player) + " Turn: ")
             self.displayGameBoard()
             self.displayAvailablePositions()
 
