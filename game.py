@@ -5,7 +5,7 @@ from enum import Enum
 class AymanTicTacToe():
 
     def __init__(self) -> None:
-        self.gameList = [" "," "," "," "," "," "," "," "," "]
+        self.gameList = ["X"," "," "," "," "," "," "," "," "]
         self.numberOfOccupiedPositions = 0
         self.adjacentPositionsDict = {
                                         0: [(1, 2), (3, 6), (4, 8)],
@@ -39,22 +39,60 @@ class AymanTicTacToe():
                     print("\nInvalid Option! Please Choose Another Option!")
 
     def startMultiplayerGame(self):
+        player1Name = input("\nEnter a name for the First Player: ")
+        player2Name = input("\nEnter a name for the Second Player: ")
+
         player1Character = None
         while (player1Character not in ["X", "O"]):
 
-            player1Character = str(input("Enter the character for Player 1 (X or O): ")).upper()
+            player1Character = str(input("Enter the character for " + player1Name + " (X or O): ")).upper()
             self.player1 = Player(player1Character, "Player 1")
 
             match player1Character:
                 case "X":
-                    self.player2 = Player("O")
+                    self.player2 = Player("O", player2Name)
                 case "O":
-                    self.player2 = Player("X")
+                    self.player2 = Player("X", player2Name)
                 case _:
                     print("Invalid character! Please try entering X or O!")
 
+        while self.numberOfOccupiedPositions < 9:
+
+            self.playTurn(self.player1)
+
+            if self.getGameStatus() == GameStatus.DRAW :
+                print("\nThe Game has resulted in a Draw between " + self.player1 + " and " + self.player2)
+            elif self.getGameStatus() == GameStatus.WIN :
+                print("\n"+self.player1 + " has Won the game! ")
+
+            self.playTurn(self.player2)
+
+            if self.getGameStatus() == GameStatus.DRAW :
+                print("\nThe Game has resulted in a Draw between " + self.player1 + " and " + self.player2)
+            elif self.getGameStatus() == GameStatus.WIN :
+                print("\n"+self.player2 + " has Won the game! ")
+
+
     def playTurn(self, player : Player):
-        pass
+        self.displayGameBoard()
+        self.displayAvailablePositions()
+        while self.getOptionValidity(player.getOption()) != True:
+            print("\nInvalid Option, Please select a valid option!")
+            self.displayGameBoard()
+            self.displayAvailablePositions()
+
+        chosenPosition = player.getLastChosenPosition() - 1
+        playerCharacter = player.getCharacter()
+        self.gameList[chosenPosition] = playerCharacter
+        
+        print("\n" + player + " has placed their character " + str(playerCharacter) + " at position: " + str(chosenPosition) )
+
+
+    def getOptionValidity(self, position : int) -> bool:
+        if 1 <= position <= 9:
+            return self.gameList[position-1] == " "
+        
+        return False
 
     def displayAvailablePositions(self):
         for i in range(9):
