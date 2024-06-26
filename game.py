@@ -89,7 +89,6 @@ class AymanTicTacToe():
                 break
         
         self.resetGame()
-        self.playGame()
 
 
     def playTurn(self, player : Player):
