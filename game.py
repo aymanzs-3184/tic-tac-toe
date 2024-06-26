@@ -87,7 +87,7 @@ class AymanTicTacToe():
         playerCharacter = player.getCharacter()
         self.gameList[chosenPosition] = playerCharacter
         
-        print("\n" + player + " has placed their character " + str(playerCharacter) + " at position: " + str(chosenPosition) )
+        print("\n" + str(player) + " has placed their character " + str(playerCharacter) + " at position: " + str(chosenPosition) )
 
 
     def getOptionValidity(self, position : int) -> bool:
