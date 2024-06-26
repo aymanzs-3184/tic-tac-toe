@@ -64,8 +64,10 @@ class AymanTicTacToe():
 
             if player1GameStatus == GameStatus.DRAW :
                 print("\nThe Game has resulted in a Draw between " + str(self.player1) + " and " + str(self.player2))
+                break
             elif player1GameStatus == GameStatus.WIN :
                 print("\n" + str(self.player1) + " has Won the game! ")
+                break
 
             self.playTurn(self.player2)
 
@@ -73,12 +75,16 @@ class AymanTicTacToe():
             
             if player2GameStatus == GameStatus.DRAW :
                 print("\nThe Game has resulted in a Draw between " + str(self.player1) + " and " + str(self.player2))
+                break
             elif player2GameStatus == GameStatus.WIN :
                 print("\n" + str(self.player2) + " has Won the game! ")
+                break
+        
+        self.playGame()
 
 
     def playTurn(self, player : Player):
-        print("\n" + str(player) + " Turn: ")
+        print("\n" + str(player) + "'s Turn: ")
         self.displayGameBoard()
         self.displayAvailablePositions()
         while self.getOptionValidity(player.getOption()) != True:
