@@ -125,9 +125,6 @@ class AymanTicTacToe():
                 print(printString)
 
     def getGameStatus(self, player : Player):
-        if self.numberOfOccupiedPositions == 9:
-            return GameStatus.DRAW
-        
         lastOccupiedPosition = player.getLastChosenPosition()
 
         if lastOccupiedPosition != None :
@@ -142,6 +139,9 @@ class AymanTicTacToe():
                 i, j = positionTuple
                 if self.gameList[i] == self.gameList[j] == playerCharacter :
                     return GameStatus.WIN
+            
+        if self.numberOfOccupiedPositions == 9:
+            return GameStatus.DRAW
             
         return GameStatus.IN_PROGRESS
     
