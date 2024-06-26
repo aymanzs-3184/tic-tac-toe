@@ -20,7 +20,7 @@ class AymanTicTacToe():
                                     }
 
     def playGame(self):
-        print("Welcome to Ayman's Tic Tac Toe!")
+        print("\nWelcome to Ayman's Tic Tac Toe!")
         userOption = 0
         while (userOption != 3):
             print("\nPress 1 to play against a bot :")
