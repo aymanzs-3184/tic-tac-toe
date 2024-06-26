@@ -46,7 +46,7 @@ class AymanTicTacToe():
         while (player1Character not in ["X", "O"]):
 
             player1Character = str(input("\nEnter the character for " + player1Name + " (X or O): ")).upper()
-            self.player1 = Player(player1Character, "Player 1")
+            self.player1 = Player(player1Character, player1Name)
 
             match player1Character:
                 case "X":
