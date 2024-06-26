@@ -5,7 +5,7 @@ class Player():
         self.playerName = playerName
         self.lastChosenPosition = None
 
-    def getCharacter():
+    def getCharacter(self):
         return self.playerCharacter 
     
     def __str__(self) -> str:
