@@ -4,7 +4,7 @@ import random
 class EasyBot(Player):
 
     def __init__(self, playerCharacter: str, gameListReference: list) -> None:
-        self.__init__(playerCharacter, "Easy Bot")
+        super().__init__(playerCharacter, "Easy Bot")
         self.gameListReference = gameListReference
 
     def getOption(self) -> int:

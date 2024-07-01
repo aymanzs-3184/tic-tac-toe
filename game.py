@@ -1,5 +1,6 @@
 from player import Player
 from enum import Enum
+import bot
 
 
 class AymanTicTacToe():
@@ -29,20 +30,53 @@ class AymanTicTacToe():
             userOption = int(input())
             match userOption:
                 case 1:
-                    pass
+                    self.getPlayerAndBotDetails()
+                    self.startGame()
                 case 2:
-                    self.startMultiplayerGame()
+                    self.getPlayersDetails()
+                    self.startGame()
                 case 3:
                     print("\nGood Bye! Have a nice day!")
                     break
                 case _:
                     print("\nInvalid Option! Please Choose Another Option!")
 
-    def resetGame(self):
-        self.gameList = [" "," "," "," "," "," "," "," "," "]
-        self.numberOfOccupiedPositions = 0
+    def getPlayerAndBotDetails(self):
+        player1Name = input("\nEnter a name for the First Player: ")
 
-    def startMultiplayerGame(self):
+        player1Character = None
+        while (player1Character not in ["X", "O"]):
+
+            player1Character = str(input("\nEnter the character for " + player1Name + " (X or O): ")).upper()
+            self.player1 = Player(player1Character, player1Name)
+
+            match player1Character:
+                case "X":
+                    self.player2 = self.getBotType("O")
+                case "O":
+                    self.player2 = self.getBotType("X")
+                case _:
+                    print("Invalid character! Please try entering X or O!")
+
+    def getBotType(self, botCharacter : str) -> Player:
+        option = 0
+
+        while option not in [1,2]:
+
+            print("\nEnter 1 to play against an Easy Bot")
+            print("\nEnter 2 to play against a Hard Bot")
+            option = int(input("\nEnter your option here: "))
+
+            match option:
+                case 1:
+                    return bot.EasyBot(botCharacter,self.gameList)
+                case 2:
+                    return bot.HardBot(botCharacter,self.gameList)
+                case _:
+                    print("\nInvalid option! Please try entering 1 or 2!")
+
+
+    def getPlayersDetails(self):
         player1Name = input("\nEnter a name for the First Player: ")
         player2Name = input("\nEnter a name for the Second Player: ")
 
@@ -60,6 +94,11 @@ class AymanTicTacToe():
                 case _:
                     print("Invalid character! Please try entering X or O!")
 
+    def resetGame(self):
+        self.gameList = [" "," "," "," "," "," "," "," "," "]
+        self.numberOfOccupiedPositions = 0
+
+    def startGame(self):
         while self.numberOfOccupiedPositions < 9:
 
             self.playTurn(self.player1)
