@@ -201,5 +201,6 @@ class GameStatus(Enum):
     DRAW = 1
     IN_PROGRESS = 2
 
-x = AymanTicTacToe()
-x.playGame()
+if __name__ == "__main__":
+    x = AymanTicTacToe()
+    x.playGame()
