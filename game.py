@@ -327,6 +327,12 @@ class AymanTicTacToe():
 
 
 class GameStatus(Enum):
+    """
+    This enumeration stores values that indicate the status of the game.
+
+    I have used an enumeration because using number's would cause confusion amongst fellow 
+    developers who are going through my code and enumerations make the code more understandable and maintainable.
+    """
 
     WIN = 0
     DRAW = 1
