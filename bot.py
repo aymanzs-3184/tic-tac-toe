@@ -301,6 +301,9 @@ class HardBot(Player):
             return chosenPosition
 
     def getOpponentCharacter(self):
+        """
+        This method returns the character chosen by the opponent of the HardBot.
+        """
         if self.playerCharacter == "X":
             return "O"
         else:
