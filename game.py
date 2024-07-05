@@ -36,11 +36,11 @@ class AymanTicTacToe():
 
         This variable stores a dictionary with position indices as keys and a list of tuples as values.
 
-        A tuple in the list of a particular position index contains two values that lie in a row/ column/ diagonal/ anti-diagonal
-        of the game matrix. 
+        A tuple in the list of a particular position index contains two values that lie in the row/ column/ diagonal/ anti-diagonal
+        of the game matrix which contains the position index. 
 
         For every position index in the game matrix, the dictionary contains a list of tuples that store all the indices near the position
-        that are in adjacent rows, columns, diagonals anfd anti-diagonals.
+        that are in the adjacent row, column, diagonal and anti-diagonal.
         """
 
         self.gameList = [" "," "," "," "," "," "," "," "," "]
